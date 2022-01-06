@@ -133,6 +133,7 @@ class Physics(mujoco.Physics):
         return (
             self.named.data.sensordata["torso_accel"].copy(),
             self.named.data.sensordata["torso_gyro"].copy(),
+            self.named.data.sensordata["torso_mag"].copy(),
         )
 
 class Humanoid(base.Task):
