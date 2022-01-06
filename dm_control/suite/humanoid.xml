@@ -163,6 +163,7 @@
     <accelerometer name="torso_accel"    site="root"/>
     <velocimeter name="torso_vel"        site="root"/>
     <gyro name="torso_gyro"              site="root"/>
+    <magnetometer name="torso_mag".      site="root"/>
 
     <force name="left_ankle_force"       site="left_ankle"/>
     <force name="right_ankle_force"      site="right_ankle"/>
