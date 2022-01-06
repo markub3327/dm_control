@@ -128,6 +128,12 @@ class Physics(mujoco.Physics):
         positions.append(torso_to_limb.dot(torso_frame))
     return np.hstack(positions)
 
+  def imu(self):
+        """Returns IMU-like sensor readings."""
+        return (
+            self.named.data.sensordata["torso_accel"].copy(),
+            self.named.data.sensordata["torso_gyro"].copy(),
+        )
 
 class Humanoid(base.Task):
   """A humanoid task."""
@@ -178,6 +184,7 @@ class Humanoid(base.Task):
       obs['torso_vertical'] = physics.torso_vertical_orientation()
       obs['com_velocity'] = physics.center_of_mass_velocity()
       obs['velocity'] = physics.velocity()
+      obs["imu"] = physics.imu()
     return obs
 
   def get_reward(self, physics):
